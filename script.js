@@ -19,23 +19,31 @@ $(function () {
   //
   // TODO: Add code to apply the past, present, or future class to each time
   // block by comparing the id to the current hour. 
-
+  let currentHour = (new Date()).getHours();
+  $('.time-block')
+    .each (function() {
+      let val = parseInt($(this).prop('id'));
+      if (val > currentHour && val < currentHour + 6) {
+        $(this).css('.past');
+        console.log()
+      }
+    })
   
 
 
   // Compared the id to the current hour
-  for ( let i = 0; i < currentHour.length; i++) {
-    currentHour[i].removeClass("past present future");
+  // for ( let i = 0; i < currentHour.length; i++) {
+  //   currentHour[i].removeClass("past present future");
 
   // Used ID attribute to each time-block to conditionally add or remove the past, present, and future classes 
-    if ( currentDayEl > currentHour[i].data(".hour")) {
-      currentHour[i].addClass(".past");
-    } else if ( currentDayEl === currentHour[i].attr("data-hour")) {
-      currentHour[i].addClass(".present");
-    } else {
-      currentHour[i].addClass(".future");
-    }
-  };
+  //   if ( currentDayEl > currentHour[i].data(".hour")) {
+  //     currentHour[i].addClass(".past");
+  //   } else if ( currentDayEl === currentHour[i].attr("data-hour")) {
+  //     currentHour[i].addClass(".present");
+  //   } else {
+  //     currentHour[i].addClass(".future");
+  //   }
+  // };
   // TODO: Add code to get any user input that was saved in localStorage and set
   // the values of the corresponding textarea elements. HINT: How can the id
   // attribute of each time-block be used to do this?
