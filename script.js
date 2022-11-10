@@ -15,10 +15,10 @@ $(function () {
   //
   // TODO: Add code to apply the past, present, or future class to each time
   // block by comparing the id to the current hour. 
-  
+
   // Used day.js to get the current hour in 24-hour time
   let currentHour = dayjs().hour();
-  console.log(currentHour)
+
 
   // Compared the id to the current hour
   for ( let i = 0; i < currentHour.length; i++) {
