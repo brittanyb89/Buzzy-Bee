@@ -1,3 +1,7 @@
+// Displays the current date in he header of the page
+let currentDayEl = document.getElementById("currentDay")
+
+currentDayEl.textContent = dayjs().format('dddd, MMMM DD');
 // Wrap all code that interacts with the DOM in a call to jQuery to ensure that
 // the code isn't run until the browser has finished rendering all the elements
 // in the html.
@@ -21,10 +25,4 @@ $(function () {
   // the values of the corresponding textarea elements. HINT: How can the id
   // attribute of each time-block be used to do this?
   //
-  // TODO: Add code to display the current date in the header of the page.
-
-  let currentDayEl = document.getElementById("currentDay")
-
-  currentDayEl.textContent = dayjs().format('dddd, MMMM DD');
-  
 });
