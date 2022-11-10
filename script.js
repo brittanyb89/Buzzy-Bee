@@ -26,4 +26,5 @@ $(function () {
   let currentDayEl = document.getElementById("currentDay")
 
   currentDayEl.textContent = dayjs().format('dddd, MMMM DD');
+  
 });
