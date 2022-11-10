@@ -2,6 +2,10 @@
 let currentDayEl = document.getElementById("currentDay")
 
 currentDayEl.textContent = dayjs().format('dddd, MMMM DD');
+
+// Used day.js to get the current hour in 24-hour time
+let currentHour = dayjs().hour();
+
 // Wrap all code that interacts with the DOM in a call to jQuery to ensure that
 // the code isn't run until the browser has finished rendering all the elements
 // in the html.
@@ -16,8 +20,7 @@ $(function () {
   // TODO: Add code to apply the past, present, or future class to each time
   // block by comparing the id to the current hour. 
 
-  // Used day.js to get the current hour in 24-hour time
-  let currentHour = dayjs().hour();
+  
 
 
   // Compared the id to the current hour
