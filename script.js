@@ -21,7 +21,17 @@ $(function () {
   let currentHour = dayjs().hour();
   console.log(currentHour)
 
-  for ( let i = 0; i <)
+  for ( let i = 0; i < currentHour.length; i++) {
+    currentHour[i].removeClass("past present future");
+    
+    if ( currentDayEl > currentHour[i].data("hour")) {
+      currentHour[i].addClass("past");
+    } else if ( currentDayEl === currentHour[i].attr("data-hour")) {
+      currentHour[i].addClass("present");
+    } else {
+      currentHour[i].addClass("future");
+    }
+  };
   // TODO: Add code to get any user input that was saved in localStorage and set
   // the values of the corresponding textarea elements. HINT: How can the id
   // attribute of each time-block be used to do this?
