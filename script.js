@@ -2,14 +2,13 @@
 // the code isn't run until the browser has finished rendering all the elements
 // in the html.
 $(function () {
-  // Displays the current date in he header of the page
 // Used day.js to get the current hour in 24-hour time
 let currentHour = dayjs().hour();
 
 let currentDayEl = $('#currentDay');
 let timeEl = $(".time-block");
 
-
+ // Displays the current date in he header of the page
 currentDayEl.textContent = dayjs().format('dddd, MMMM DD');
 
 
