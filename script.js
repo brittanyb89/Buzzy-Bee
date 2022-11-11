@@ -1,16 +1,17 @@
-// Used day.js to get the current hour in 24-hour time
-let currentHour = dayjs().hour();
-console.log(currentHour)
-
 // Wrap all code that interacts with the DOM in a call to jQuery to ensure that
 // the code isn't run until the browser has finished rendering all the elements
 // in the html.
 $(function () {
   // Displays the current date in he header of the page
-let currentDayEl = document.getElementById("currentDay")
-let timeEl = document.getElementsByClassName("time-block");
+// Used day.js to get the current hour in 24-hour time
+let currentHour = dayjs().hour();
+console.log(currentHour)
+let currentDayEl = $('#currentDay');
+let timeEl = $(".time-block");
+
 
 currentDayEl.textContent = dayjs().format('dddd, MMMM DD');
+console.log('currentDayEl')
 
   // TODO: Add a listener for click events on the save button. This code should
   // use the id in the containing time-block as a key to save the user input in
@@ -22,21 +23,21 @@ currentDayEl.textContent = dayjs().format('dddd, MMMM DD');
   // TODO: Add code to apply the past, present, or future class to each time
   // block by comparing the id to the current hour. 
 
-  // Compared the id to the current hour
-  for ( let i = 0; i < timeEl.length; i++) {
+  // Compared the id to the current hour and ran a for loop through each time-block
+  for (let i = 0; i < timeEl.length; i++) {
     timeEl[i].getAttribute("data-hour");
     console.log(timeEl[i].getAttribute("data-hour"))
     
 
   // Used ID attribute to each time-block to conditionally add or remove the past, present, and future classes 
-  //   if ( currentDayEl > currentHour[i].data("hour")) {
-  //     currentHour[i].addClass("past");
-  //   } else if ( currentDayEl === currentHour[i].attr("data-hour")) {
-  //     currentHour[i].addClass("present");
-  //   } else {
-  //     currentHour[i].addClass("future");
+    if (currentDayEl > timeEl[i]) {
+      jQuery('timeEl').addClass("past");
+    } else if (currentDayEl === timeEl[i]) {
+        jQuery('timeEl').addClass("present");
+    } else {
+        jQuery('timeEl').addClass("future");
     }
-  // };
+  };
 
 
   // TODO: Add code to get any user input that was saved in localStorage and set
