@@ -26,20 +26,20 @@ let timeEl = $(".time-block");
   // block by comparing the id to the current hour. 
 
   // Compared the id to the current hour and ran a for loop through each time-block
-  // for (let i = 0; i < timeEl.length; i++) {
-  //   timeEl[i].getAttribute("data-hour");
-  //   console.log(timeEl[i].getAttribute("data-hour"))
+  for (let i = 0; i < timeEl.length; i++) {
+    timeEl[i].getAttribute("data-hour");
+    console.log(timeEl[i].getAttribute("data-hour"))
     
 
   // Used ID attribute to each time-block to conditionally add or remove the past, present, and future classes 
-  //   if (currentDayEl > timeEl[i]) {
-  //     jQuery('timeEl').addClass("past");
-  //   } else if (currentDayEl === timeEl[i]) {
-  //       jQuery('timeEl').addClass("present");
-  //   } else {
-  //       jQuery('timeEl').addClass("future");
-  //   }
-  // };
+    if (currentDayEl > timeEl[i]) {
+      jQuery('timeEl').addClass("past");
+    } else if (currentDayEl === timeEl[i]) {
+        jQuery('timeEl').addClass("present");
+    } else {
+        jQuery('timeEl').addClass("future");
+    }
+  };
 
 
   // TODO: Add code to get any user input that was saved in localStorage and set
