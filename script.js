@@ -11,7 +11,7 @@ let timeEl = $(".time-block");
 
 
 currentDayEl.textContent = dayjs().format('dddd, MMMM DD');
-console.log('currentDayEl')
+
 
   // TODO: Add a listener for click events on the save button. This code should
   // use the id in the containing time-block as a key to save the user input in
