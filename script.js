@@ -1,15 +1,18 @@
 // Wrap all code that interacts with the DOM in a call to jQuery to ensure that
 // the code isn't run until the browser has finished rendering all the elements
 // in the html.
-$(function () {
+
 // Used day.js to get the current hour in 24-hour time
 let currentHour = dayjs().hour();
+
+$(function () {
 
 let currentDayEl = $('#currentDay');
 let timeEl = $(".time-block");
 
  // Displays the current date in he header of the page
-currentDayEl.textContent = dayjs().format('dddd, MMMM DD');
+ $('#currentDay').text(dayjs().format('dddd, MMMM DD'));
+
 
 
   // TODO: Add a listener for click events on the save button. This code should
@@ -23,20 +26,20 @@ currentDayEl.textContent = dayjs().format('dddd, MMMM DD');
   // block by comparing the id to the current hour. 
 
   // Compared the id to the current hour and ran a for loop through each time-block
-  for (let i = 0; i < timeEl.length; i++) {
-    timeEl[i].getAttribute("data-hour");
-    console.log(timeEl[i].getAttribute("data-hour"))
+  // for (let i = 0; i < timeEl.length; i++) {
+  //   timeEl[i].getAttribute("data-hour");
+  //   console.log(timeEl[i].getAttribute("data-hour"))
     
 
   // Used ID attribute to each time-block to conditionally add or remove the past, present, and future classes 
-    if (currentDayEl > timeEl[i]) {
-      jQuery('timeEl').addClass("past");
-    } else if (currentDayEl === timeEl[i]) {
-        jQuery('timeEl').addClass("present");
-    } else {
-        jQuery('timeEl').addClass("future");
-    }
-  };
+  //   if (currentDayEl > timeEl[i]) {
+  //     jQuery('timeEl').addClass("past");
+  //   } else if (currentDayEl === timeEl[i]) {
+  //       jQuery('timeEl').addClass("present");
+  //   } else {
+  //       jQuery('timeEl').addClass("future");
+  //   }
+  // };
 
 
   // TODO: Add code to get any user input that was saved in localStorage and set
