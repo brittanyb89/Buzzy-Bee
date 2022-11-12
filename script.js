@@ -4,6 +4,7 @@
 
 // Used day.js to get the current hour in 24-hour time
 let currentHour = dayjs().hour();
+console.log(dayjs().hour())
 
 $(function () {
 
@@ -12,6 +13,7 @@ let timeEl = $(".time-block");
 
  // Displays the current date in he header of the page
  $('#currentDay').text(dayjs().format('dddd, MMMM DD'));
+ console.log((dayjs().format('dddd, MMMM DD')))
 
 
 
@@ -33,11 +35,11 @@ let timeEl = $(".time-block");
 
   // Used ID attribute to each time-block to conditionally add or remove the past, present, and future classes 
     if (currentDayEl > timeEl[i]) {
-      jQuery('timeEl').addClass("past");
+      $('time-block').addClass("past");
     } else if (currentDayEl === timeEl[i]) {
-        jQuery('timeEl').addClass("present");
+        $('time-block').addClass("present");
     } else {
-        jQuery('timeEl').addClass("future");
+        $('time-block').addClass("future");
     }
   };
 
