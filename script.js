@@ -15,7 +15,7 @@ let timeEl = $(".time-block");
  $('#currentDay').text(dayjs().format('dddd, MMMM DD'));
  console.log((dayjs().format('dddd, MMMM DD')))
 
-
+currentDayEl.append(currentDay);
 
   // TODO: Add a listener for click events on the save button. This code should
   // use the id in the containing time-block as a key to save the user input in
@@ -34,9 +34,9 @@ let timeEl = $(".time-block");
     
 
   // Used ID attribute to each time-block to conditionally add or remove the past, present, and future classes 
-    if (currentDayEl > timeEl[i]) {
-      $('time-block').addClass("past");
-    } else if (currentDayEl === timeEl[i]) {
+    if (currentHour > 'data-hour') {
+      $('data-hour').addClass("past");
+    } else if (currentHour === timeEl[i]) {
         $('time-block').addClass("present");
     } else {
         $('time-block').addClass("future");
