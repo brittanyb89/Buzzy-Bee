@@ -17,15 +17,29 @@ currentDayEl.append(currentDay);
 // Targeted the container
 let containerEl = $('.container');
 let dailyPlan = [];
-  // use the id in the containing time-block as a key to save the user input in
-  // local storage. HINT: What does `this` reference in the click listener
-  // function? How can DOM traversal be used to get the "hour-x" id of the
-  // time-block containing the button that was clicked? How might the id be
-  // useful when saving the description in local storage?
+  
+   // DOM traversal used to get the "hourX" id of the time-block containing the button that was clicked
   // Add a listener for click events on the save button
   $('.saveBtn').on('click', function() {
-    console.log(this)
+    
+    let text = $(this).siblings('.description').val(); // 'this' is used to grab nearby values and sibling html used to take change from html description attribute
+    let time = $(this).parent().attr('id'); // took change to parent html id attribute
+
+    // Use the id in the containing time-block as a key to save the user input in local storage.
+    localStorage.setItem(time,text);
   });
+ 
+  $('#hour9 .description').val(localStorage.getItem('hour9'));
+  $('#hour10 .description').val(localStorage.getItem('hour10'));
+  $('#hour11 .description').val(localStorage.getItem('hour11'));
+  $('#hour12 .description').val(localStorage.getItem('hour12'));
+  $('#hour13 .description').val(localStorage.getItem('hour13'));
+  $('#hour14 .description').val(localStorage.getItem('hour14'));
+  $('#hour15 .description').val(localStorage.getItem('hour15'));
+  $('#hour16 .description').val(localStorage.getItem('hour16'));
+  $('#hour17 .description').val(localStorage.getItem('hour17'));
+  $('#hour18 .description').val(localStorage.getItem('hour18'));
+  
   // Added code to apply past, present, or future class to each time block by comparing the id to the current hour. 
   function whenIsNow(hour) {
     let hourEl = (moment(parseInt(hour)));
