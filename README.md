@@ -22,16 +22,16 @@ Step 5: Click the blue save button to input your plans for each timeframe.
 
 Step 6: When the page is refreshed, the user would see the save events remain in place.
 
-To add a screenshot, create an `assets/images` folder in your repository and upload your screenshot to it. Then, using the relative filepath, add it to your README using the following syntax:
+![current date](assets/images/current_date.png)
 
-    
-    ![current date](./assets/images/current_date.png)
-    ![time block](./assets/images/time-blocks.png)
-    ![past, present, future](./assets/images/past_present_future.png)
-    ![enter text](./assets/images/enter_text.png)
-    ![save](./assets/images/save_event.png)
-    
-  
+![time block](assets/images/enter_text.png) 
+   
+![past, present, future](assets/images/past_present_future.png)
+
+![enter text](assets/images/enter_text.png)
+
+![save](assets/images/save_event.png)
+
 
 ## Credits
 
