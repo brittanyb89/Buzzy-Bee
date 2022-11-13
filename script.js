@@ -1,6 +1,5 @@
 // Used day.js to get the current hour in 24-hour time
 let currentHour = dayjs().hour();
-console.log(dayjs().hour())
 
 $(function () {
 
@@ -9,7 +8,6 @@ let timeEl = $(".time-block");
 
  // Displays the current date in he header of the page
  $('#currentDay').text(dayjs().format('dddd, MMMM DD'));
- console.log((dayjs().format('dddd, MMMM DD')))
 
 //  Appended the date to current day div
 currentDayEl.append(currentDay);
@@ -29,6 +27,7 @@ let dailyPlan = [];
     localStorage.setItem(time,text);
   });
  
+  // Added code to get any user input that was saved in localStorage and set the values of the corresponding textarea elements.
   $('#hour9 .description').val(localStorage.getItem('hour9'));
   $('#hour10 .description').val(localStorage.getItem('hour10'));
   $('#hour11 .description').val(localStorage.getItem('hour11'));
@@ -51,12 +50,12 @@ let dailyPlan = [];
     } else (hourEl.isAfter(currentHour));{
       return 'future';
     }
-  }
+  };
 
+  
   // Used ID attribute to each time-block to conditionally add or remove the past, present, and future classes and looped time blocks
   $(".time-block").each(function () {
     let blockHour = parseInt($(this).attr("id").split("hour")[1]);
-    console.log(blockHour, currentHour)
     if (blockHour < currentHour) {
       $(this).addClass('past');
       $(this).removeClass('present');
@@ -71,26 +70,6 @@ let dailyPlan = [];
       $(this).removeClass('past');
       $(this).removeClass('present');
       $(this).addClass('future');
-    }
-  })
-  // Count from 9-17 and created each time block
-  // for (let i = 9; i < 17; i++) {
-  //   // Grabbed event from local storage
-  //   let timeEl = localStorage.getItem(i);
-  //   if(timeEl == null) {
-  //     timeEl = '';
-  //   }
- 
-  // }
-   
-    
-
-  
-  
-
-
-  // TODO: Add code to get any user input that was saved in localStorage and set
-  // the values of the corresponding textarea elements. HINT: How can the id
-  // attribute of each time-block be used to do this?
-  //
+    };
+  });
 });
