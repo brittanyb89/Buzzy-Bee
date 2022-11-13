@@ -12,13 +12,26 @@ N/A
 
 Step 1: Open scheduler. Note: the current date should always appear in the header below the title and subtitle.
 
-Step 2: Each 
+Step 2: Each time block for standard work day should appear on the screen.(9AM-6PM)
+
+Step 3:Each time-block is color coded for past, present, and future times. So, past times would be grey, present time would be red, and future times would be green.
+
+Step 4: Click on the text box to enter your plans. 
+
+Step 5: Click the blue save button to input your plans for each timeframe.
+
+Step 6: When the page is refreshed, the user would see the save events remain in place.
 
 To add a screenshot, create an `assets/images` folder in your repository and upload your screenshot to it. Then, using the relative filepath, add it to your README using the following syntax:
 
-    ```md
-    ![alt text](assets/images/screenshot.png)
-    ```
+    
+    ![current date](./assets/images/current_date.png)
+    ![time block](./assets/images/time-blocks.png)
+    ![past, present, future](./assets/images/past_present_future.png)
+    ![enter text](./assets/images/enter_text.png)
+    ![save](./assets/images/save_event.png)
+    
+  
 
 ## Credits
 
