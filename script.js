@@ -1,7 +1,3 @@
-// Wrap all code that interacts with the DOM in a call to jQuery to ensure that
-// the code isn't run until the browser has finished rendering all the elements
-// in the html.
-
 // Used day.js to get the current hour in 24-hour time
 let currentHour = dayjs().hour();
 console.log(dayjs().hour())
@@ -15,7 +11,12 @@ let timeEl = $(".time-block");
  $('#currentDay').text(dayjs().format('dddd, MMMM DD'));
  console.log((dayjs().format('dddd, MMMM DD')))
 
+//  Appended the date to current day div
 currentDayEl.append(currentDay);
+
+// Targeted the container
+let containerEl = $('.container');
+let dailyPlan = [];
 
   // TODO: Add a listener for click events on the save button. This code should
   // use the id in the containing time-block as a key to save the user input in
@@ -24,24 +25,54 @@ currentDayEl.append(currentDay);
   // time-block containing the button that was clicked? How might the id be
   // useful when saving the description in local storage?
   //
-  // TODO: Add code to apply the past, present, or future class to each time
-  // block by comparing the id to the current hour. 
+ 
+  // Added code to apply past, present, or future class to each time block by comparing the id to the current hour. 
+  function whenIsNow(hour) {
+    let hourEl = (moment(parseInt(hour)));
+    // Compared hour passed into function and set classes accordingly
+    if (hourEl.isSame(currentHour)) {
+      return 'present';
+    } else if (hourEl.isBefore(currentHour)) {
+      return 'past';
+    } else (hourEl.isAfter(currentHour));{
+      return 'future';
+    }
+  }
 
-  // Compared the id to the current hour and ran a for loop through each time-block
-  for (let i = 0; i < timeEl.length; i++) {
-    timeEl[i].getAttribute("data-hour");
-    console.log(timeEl[i].getAttribute("data-hour"))
+  // Used ID attribute to each time-block to conditionally add or remove the past, present, and future classes and looped time blocks
+  $(".time-block").each(function () {
+    let blockHour = parseInt($(this).attr("id").split("hour")[1]);
+    console.log(blockHour, currentHour)
+    if (blockHour < currentHour) {
+      $(this).addClass('past');
+      $(this).removeClass('present');
+      $(this).removeClass('future');
+    }
+    else if (blockHour === currentHour) {
+      $(this).removeClass('past');
+      $(this).addClass('present');
+      $(this).removeClass('future');
+    }
+    else {
+      $(this).removeClass('past');
+      $(this).removeClass('present');
+      $(this).addClass('future');
+    }
+  })
+  // Count from 9-17 and created each time block
+  // for (let i = 9; i < 17; i++) {
+  //   // Grabbed event from local storage
+  //   let timeEl = localStorage.getItem(i);
+  //   if(timeEl == null) {
+  //     timeEl = '';
+  //   }
+ 
+  // }
+   
     
 
-  // Used ID attribute to each time-block to conditionally add or remove the past, present, and future classes 
-    if (currentHour > 'data-hour') {
-      $('data-hour').addClass("past");
-    } else if (currentHour === timeEl[i]) {
-        $('time-block').addClass("present");
-    } else {
-        $('time-block').addClass("future");
-    }
-  };
+  
+  
 
 
   // TODO: Add code to get any user input that was saved in localStorage and set
